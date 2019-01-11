@@ -1,0 +1,17 @@
+version: '2.0'
+
+
+services:
+
+  main:
+    build: .
+    container_name: fyset-main
+    volumes:
+      - ./:/app
+    depends_on:
+      - postgres
+    ports:
+      - '61001:5000'
+    environment:
+      - FLASK_ENV=development
+    command: bash scripts/start-local.sh
